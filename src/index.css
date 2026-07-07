@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 30 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 10%;
+    --primary: 30 90% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 15% 94%;
+    --secondary-foreground: 30 10% 15%;
+    --muted: 40 10% 92%;
+    --muted-foreground: 30 5% 45%;
+    --accent: 30 90% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 30 90% 45%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 30 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 94%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 40 10% 88%;
+    --sidebar-ring: 30 90% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600;
+  }
+  .text-gradient-subtle {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-stone-800 to-stone-500;
+  }
+}
+
+/* Halftone pattern - inspired by fumadocs */
+.halftone {
+  background-image: radial-gradient(circle, rgba(217, 119, 6, 0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.halftone-dense {
+  background-image: radial-gradient(circle, rgba(217, 119, 6, 0.12) 1.5px, transparent 1.5px);
+  background-size: 6px 6px;
+}
+
+/* Terminal/code block styling */
+.terminal-block {
+  @apply rounded-xl border border-stone-200 bg-stone-900 overflow-hidden shadow-xl;
+}
+
+.terminal-header {
+  @apply flex items-center gap-2 px-4 py-3 border-b border-stone-700 bg-stone-800;
+}
+
+.terminal-body {
+  @apply p-4 overflow-x-auto text-sm leading-relaxed font-mono;
+}
+
+/* Clean card style */
+.clean-card {
+  @apply rounded-xl border border-stone-200 bg-white p-6 transition-all hover:border-stone-300 hover:shadow-md;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-24 md:py-32;
+}
+
+/* Subtle grid pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Smooth fade for sections */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dot pattern like fumadocs */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
